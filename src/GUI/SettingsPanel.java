@@ -5,7 +5,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class SettingsPanel extends JPanel {
-    public JSpinner numberOfAnts, numberOfNodes, numberOfFoodNodes;
+    public JSpinner numberOfAnts, numberOfNodes, numberOfFoodNodes, numberOfEdges;
     public AntColonyWindow antColonyWindow;
 
     public SettingsPanel(AntColonyWindow acw) {
@@ -40,9 +40,15 @@ public class SettingsPanel extends JPanel {
         foodNodes.add(new CustomLabel("Number of food nodes: ", foodNodes));
         foodNodes.add(numberOfFoodNodes);
 
+        numberOfEdges = new CustomSpinner(new SpinnerNumberModel(1, 1, 1000000, 1));
+        JPanel edges = new CustomPanel(this);
+        edges.add(new CustomLabel("Number of edges: ", edges));
+        edges.add(numberOfEdges);
+
         add(ants, BorderLayout.PAGE_START);
         add(nodes, BorderLayout.CENTER);
         add(foodNodes, BorderLayout.CENTER);
+        add(edges, BorderLayout.CENTER);
         add(new StartButton(antColonyWindow), BorderLayout.PAGE_END);
     }
 }

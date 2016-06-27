@@ -13,6 +13,7 @@ public class StartButton extends JButton implements ActionListener {
         setBackground(Color.white);
         setFont(new Font("Verdana", Font.PLAIN, 20));
         setText("START");
+        addActionListener(this);
         this.antColonyWindow = antColonyWindow;
     }
 
