@@ -5,6 +5,7 @@ import java.awt.*;
 public class Node {
     private int x, y, amountOfFood;
     private Color color;
+    private boolean anthill;
 
     public Node() {
         x = 0;
@@ -13,10 +14,11 @@ public class Node {
         color = Color.black;
     }
 
-    public Node(int x, int y, int amountOfFood) {
+    public Node(int x, int y, int amountOfFood, boolean anthill) {
         this.x = x;
         this.y = y;
         this.amountOfFood = amountOfFood;
+        this.anthill = anthill;
         if (amountOfFood == 0)
             this.color = Color.white;
         else
@@ -26,6 +28,8 @@ public class Node {
     public boolean isFoodNode() {
         return amountOfFood > 0;
     }
+
+    public boolean isAnthill() { return anthill; }
 
     public void consume() {
         amountOfFood--;
